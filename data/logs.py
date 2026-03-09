@@ -1,5 +1,5 @@
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 def generate_logs(n):
@@ -18,7 +18,7 @@ def generate_logs(n):
             "level": random.choice(levels),
             "service": random.choice(services),
             "message": random.choice(messages),
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "timestamp":(datetime.now() - timedelta(minutes=random.randint(0, 1440))).strftime("%Y-%m-%d %H:%M:%S")
         }
         logs.append(log)
 
